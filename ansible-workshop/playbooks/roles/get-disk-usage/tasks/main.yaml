@@ -1,0 +1,7 @@
+- name: Get disk usage data
+  shell: "df -h"
+  register: DiskUsageData
+
+- name: Print disk usage data
+  debug:
+    msg: "{{DiskUsageData.stdout_lines}}"

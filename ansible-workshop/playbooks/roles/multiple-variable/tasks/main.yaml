@@ -1,0 +1,4 @@
+- name: Printing single variable from group_vars folder
+  debug:
+    msg: "Please install {{item}} module"
+  loop: "{{install_package}}"

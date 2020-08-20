@@ -1,0 +1,60 @@
+- name: Exercise 1 Part One - Introduction to Ansible
+  hosts:
+    targetnode20
+
+  tasks:
+    - name: Print Task 1
+      debug:
+        msg: "This is Task 1"
+    - name: Print Task 2
+      debug:
+        msg: "This is Task 2"
+    - name: Print Task 3
+      debug:
+        msg: "This is Task 3"
+  tags: ex-1-1
+
+- name: Exercise 1 Part two - Introduction to roles & tags
+  hosts:
+    targetnode20
+  roles:
+    - role: task-1
+    - role: task-2
+    - role: task-3
+  tags: ex-1-2
+
+- name: Exercise 2 - Using Variables & Loop function
+  hosts:
+    managed_node
+  roles:
+    - role: single-variable
+    - role: multiple-variable
+  tags: ex-2
+
+
+- name: Exercise 3 - Privilege Escalation
+  hosts:
+    managed_node
+  become: yes
+
+  roles:
+    - role: installpackage
+  tags: ex-3
+  
+- name: Exercise 4 - Target Control, Target only one managed node
+  hosts:
+    managed_node
+  roles:
+    - role: get-block-devices
+  tags:
+    - ex-4
+    - ex-4-managed_node
+
+- name: Exercise 4 - Target Control, Target both the managed node & localhost
+  hosts:
+    all_node
+  roles:
+    - role: get-disk-usage
+  tags:
+    - ex-4
+    - ex-4-all_node

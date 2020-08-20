@@ -1,0 +1,3 @@
+- name: Printing single variable from group_vars folder
+  debug:
+    msg: "Required to install '{{required_package}}' module"

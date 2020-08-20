@@ -1,0 +1,10 @@
+- name: Install nginx package
+  apt:
+    name: "{{item}}"
+    state: present
+  loop: "{{install_package}}"
+
+- name: Start nginx service
+  service:
+    name: nginx
+    state: started

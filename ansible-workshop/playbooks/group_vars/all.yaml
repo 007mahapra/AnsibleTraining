@@ -1,0 +1,6 @@
+required_package: openssh-server
+
+install_package:
+  - vim
+  - python3
+  - nginx

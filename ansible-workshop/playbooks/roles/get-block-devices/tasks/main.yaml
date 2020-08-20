@@ -1,0 +1,7 @@
+- name: Get block devices data
+  shell: "lsblk"
+  register: BlockDeviceData
+
+- name: Print block devices data
+  debug:
+    msg: "{{BlockDeviceData.stdout_lines}}"
